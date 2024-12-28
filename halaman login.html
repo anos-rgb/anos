@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tampilan Login dan Daftar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 300px;
+            transition: transform 0.6s ease;
+        }
+        .form {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        .form h2 {
+            margin: 0 0 20px;
+            text-align: center;
+        }
+        .form input {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form button {
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .form button:hover {
+            background-color: #218838;
+        }
+        .toggle {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .toggle a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .toggle a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" id="container">
+    <div class="form" id="loginForm">
+        <h2>Login</h2>
+        <input type="text" placeholder="Email" required>
+        <input type="password" placeholder="Kata Sandi" required>
+        <button onclick="login()">Masuk</button>
+        <div class="toggle">
+            <span>Belum punya akun? <a href="#" onclick="toggleForms()">Daftar</a></span>
+        </div>
+    </div>
+
+    <div class="form" id="registerForm" style="display: none;">
+        <h2>Daftar</h2>
+        <input type="text" placeholder="Nama" required>
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Kata Sandi" required>
+        <button onclick="register()">Daftar</button>
+        <div class="toggle">
+            <span>Sudah punya akun? <a href="#" onclick="toggleForms()">Masuk</a></span>
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleForms() {
+        const container = document.getElementById('container');
+        const loginForm = document.getElementById('loginForm');
+        const registerForm = document.getElementById('registerForm');
+
+        if (loginForm.style.display === "none") {
+            loginForm.style.display = "flex";
+            registerForm.style.display = "none";
+            container.style.transform = "translateX(0)";
+        } else {
+            loginForm.style.display = "none";
+            registerForm.style.display = "flex";
+            container.style.transform = "translateX(-100%)";
+        }
+    }
+
+    function login() {
+        alert("Login berhasil!");
+    }
+
+    function register() {
+        alert("Pendaftaran berhasil!");
+    }
+</script>
+
+</body>
+</html>
